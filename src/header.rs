@@ -324,13 +324,7 @@ impl Header {
     }
 
     fn get_today_date() -> Date {
-        let current_date = time::OffsetDateTime::now_utc().date();
-        // The year will be saved a a u8 offset from 1900
-        if current_date.year() < 1900 || current_date.year() > 2155 {
-            panic!("the year current date is out of range");
-        } else {
-            current_date.into()
-        }
+        Date::new(1, 1, 1970)
     }
 
     pub(crate) fn update_date(&mut self) {
